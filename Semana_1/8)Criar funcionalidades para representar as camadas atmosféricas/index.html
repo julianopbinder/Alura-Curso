@@ -1,0 +1,36 @@
+ <!DOCTYPE html>
+<html>
+<head>
+  <title>Lançamento de Foguete</title>
+  <script>
+    // Função para mostrar a mensagem na tela
+    function mostrarMensagem(mensagem) {
+      document.getElementById("mensagem").innerHTML += mensagem + "<br>";
+    }
+
+    // Função para realizar o lançamento do foguete
+    function lancarFoguete() {
+      mostrarMensagem(' ^^^ Lançamento autorizado ^^^');
+      mostrarMensagem('');
+      mostrarMensagem('====^ ENTRANDO NA CAMADA TROPOSFERA [15KM] ^=======');
+      mostrarMensagem('====^ ENTRANDO NA CAMADA ESTRATOSFERA [50KM] ^=====');
+      mostrarMensagem('====^ ENTRANDO NA CAMADA MESOSFERA [80KM] ^=');    
+      mostrarMensagem('====^ ENTRANDO NA CAMADA TERMOSFERA [500KM] ^======');
+      mostrarMensagem('====^ ENTRANDO NA CAMADA EXOSFERA [500KM] ^========');
+      mostrarMensagem('******** (SATÉLITES)! ****** (TELESCÓPIOS)! ********');
+      mostrarMensagem('');
+      mostrarMensagem('====v SAINDO DA CAMADA EXOSFERA v====');
+      mostrarMensagem('====v SAINDO DA CAMADA TERMOSFERA v====');
+      mostrarMensagem('====v SAINDO DA CAMADA MESOSFERA v====');
+      mostrarMensagem('====v SAINDO DA CAMADA ESTRATOSFERA v====');
+      mostrarMensagem('====v SAINDO DA CAMADA TROPOSFERA v====');
+      mostrarMensagem('— Aterrisagem perfeita!!!—');
+    }
+  </script>
+</head>
+<body>
+  <h1>Lançamento de Foguete</h1>
+  <button onclick="lancarFoguete()">Lançar Foguete</button>
+  <p id="mensagem"></p>
+</body>
+</html>

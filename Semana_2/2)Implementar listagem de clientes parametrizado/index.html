@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>COMEX</title>
+      <script>
+         const anoAtual = parseInt(prompt("Digite o ano atual:"));
+         const quantidadeRegistros = parseInt(prompt("Digite a quantidade de registros:"));
+
+         let clientes = []; 
+
+         function mostrarInformacoes(nome, mesNascimento, anoNascimento) {
+            const idade = anoAtual - anoNascimento; 
+
+            let html = "";
+            html += "Codigo: " + (clientes.length + 1) + "<br><br>";
+            html += "Nome: " + nome + "<br><br>";
+            html += "Mês de nascimento: " + mesNascimento + "<br><br>";
+            html += "Ano de nascimento: " + anoNascimento + "<br><br>";
+            html += "Idade: " + idade + "<br><br>";
+            clientes.push({nome: nome, mesNascimento: mesNascimento, anoNascimento: anoNascimento, idade: idade}); 
+            return html;
+         }
+
+
+         function solicitarDados() {            
+            let listaClientes = '';
+            for(let i = 0; i < quantidadeRegistros; i++) {         
+               const nome = prompt("Digite o nome:");
+               const mesNascimento = prompt("Digite o mês de nascimento:");
+               const anoNascimento = parseInt(prompt("Digite o ano de nascimento:")); 
+               listaClientes += "<li>" + mostrarInformacoes(nome, mesNascimento, anoNascimento) + "</li>";
+            }
+            return listaClientes;              
+         }
+
+         function calcularSomaIdades(clientes) {
+            let soma = 0;
+            for (let i = 0; i < clientes.length; i++) {
+               soma += clientes[i].idade; 
+            }
+            return soma;
+         }
+
+         function calcularMediaIdades(clientes) {
+            const soma = calcularSomaIdades(clientes);
+            return Math.round(soma / clientes.length);
+         }
+         
+      </script>
+   </head>
+   <body>
+      <h3>>> COMEX <<</h3>
+      <h3>:: Lista de Clientes</h3>
+      <hr>
+      <ul>
+         <script>
+            const retorno = solicitarDados();
+            document.write(retorno);
+         </script>
+      </ul>
+      <hr>
+      <div>
+         <h3>*** Estatística***</h3>
+         Soma das idades: <span id="somaIdades"></span><br>
+         Média das idades: <span id="mediaIdades"></span>
+      </div>
+      <hr>
+      <p>:: Alura LEVEL UP ::.</p>
+      <script>
+         document.getElementById('somaIdades').innerText = calcularSomaIdades(clientes);
+         document.getElementById('mediaIdades').innerText = calcularMediaIdades(clientes);
+      </script>
+   </body>
+</html>

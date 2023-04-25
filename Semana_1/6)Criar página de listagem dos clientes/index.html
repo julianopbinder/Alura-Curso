@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>COMEX - Visão do Produto</title>
+      <script>
+         var clientes = [
+            { codigo: 1, nome: 'Fulano', mesNascimento: 'Fevereiro', anoNascimento: 1980 },
+            { codigo: 2, nome: 'Beltrano', mesNascimento: 'Maio', anoNascimento: 1981 },
+            { codigo: 3, nome: 'Sicrano', mesNascimento: 'Novembro', anoNascimento: 1984 }
+         ];
+         
+         function calcularSomaIdades(clientes) {
+         var soma = 0;
+         for (var i = 0; i < clientes.length; i++) {
+           soma += (new Date().getFullYear() - clientes[i].anoNascimento);
+         }
+         return soma;
+         }
+         
+         function calcularMediaIdades(clientes) {
+         var soma = calcularSomaIdades(clientes);
+         return Math.round(soma / clientes.length);
+         }
+      </script>
+   </head>
+   <body>
+      <h3>>> COMEX <<</h3>      
+      <h3>:: Lista de Clientes</h3>
+      <hr>
+      <ul>
+         <li>
+            <p>
+               <b>- Código: 1</b>
+                <br>
+               Nome: Fulano
+               <br>
+               Mês de nascimento: Fevereiro
+               <br>
+               Ano de nascimento: 1980
+            </p>
+            <hr>
+         </li>
+         <li>
+            <p>
+               <b>- Código: 2</b>
+               <br>
+               Nome: Beltrano<br>
+               Mês de nascimento: Maio
+               <br>
+               Ano de nascimento: 1981
+            </p>
+            <hr>
+         </li>
+         <li>
+            <p>
+               <b>- Código: 3</b>
+               <br>
+               Nome: Sicrano
+               <br>
+               Mês de nascimento: Novembro
+              <br>
+               Ano de nascimento: 1984
+            </p>
+         </li>
+      </ul>
+      <hr>
+      *** Estatística***
+      <br>
+      Soma das idades: <span id="somaIdades"></span>
+      <br>
+      Média das idades: <span id="mediaIdades"></span>
+      <br>
+      <hr>
+      :: Alura LEVEL UP ::.
+      <script>
+         document.getElementById('somaIdades').innerText = calcularSomaIdades(clientes);
+         document.getElementById('mediaIdades').innerText = calcularMediaIdades(clientes);
+      </script>
+   </body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>COMEX - Visão do Produto</title>
+      <script>
+         var clientes = [
+            { codigo: 1, nome: 'Fulano', mesNascimento: 'Fevereiro', anoNascimento: 2006 },
+            { codigo: 2, nome: 'Beltrano', mesNascimento: 'Maio', anoNascimento: 2000 },
+            { codigo: 3, nome: 'Sicrano', mesNascimento: 'Novembro', anoNascimento: 1950 }
+         ];
+         
+         const anoAtual = parseInt(prompt("Digite o ano atual:"));
+         
+         function calcularIdade(anoAtual,i) {
+             var idadeAtual = (anoAtual - clientes[i].anoNascimento);             
+             var caracteristicaEtaria = classificarFaixaEtaria(idadeAtual);
+             return caracteristicaEtaria;
+         }
+         
+         function classificarFaixaEtaria(idadeAtual) {
+             if (idadeAtual <= 17) {
+                 return "ADOLESCENTE";
+             } else if (idadeAtual >= 18 && idadeAtual <= 29) {
+                 return "JOVEM";
+             } else if (idadeAtual >= 30 && idadeAtual <= 59) {
+                 return "ADULTO";
+             } else {
+                 return "IDOSO";
+             }
+         }
+      </script>
+   </head>
+   <body>
+      <h3>>> COMEX <<</h3>
+      <h3>:: Lista de Clientes</h3>
+      <hr>
+      <ul>
+         <li>
+            <p>
+               <b>- Código: 1</b>
+               <br>
+               Nome: Fulano
+               <br>
+               Mês de nascimento: Fevereiro
+               <br>
+               Ano de nascimento: 2006
+               <br>
+               Caracteristica Etária: 
+               <script>
+                  var faixaEtaria = calcularIdade(anoAtual,0);
+                  document.write(faixaEtaria);
+               </script>
+            </p>
+            <hr>
+         </li>
+         <li>
+            <p>
+               <b>- Código: 2</b>
+               <br>
+               Nome: Beltrano<br>
+               Mês de nascimento: Maio
+               <br>
+               Ano de nascimento: 2000
+               <br>
+               Caracteristica Etária: 
+               <script>
+                  var faixaEtaria = calcularIdade(anoAtual,1);
+                  document.write(faixaEtaria);
+               </script>
+            </p>
+            <hr>
+         </li>
+         <li>
+            <p>
+               <b>- Código: 3</b>
+               <br>
+               Nome: Sicrano
+               <br>
+               Mês de nascimento: Novembro
+               <br>
+               Ano de nascimento: 1950
+               <br>
+               Caracteristica Etária:
+               <script>
+                  var faixaEtaria = calcularIdade(anoAtual,2);
+                  document.write(faixaEtaria);
+               </script>
+            </p>
+         </li>
+      </ul>
+      <hr>
+      <p><b>:: Alura LEVEL UP ::.</b></p>
+   </body>
+</html>

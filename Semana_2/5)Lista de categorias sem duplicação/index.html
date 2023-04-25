@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Cadastro de Categorias</title>
+      <script>
+         let codigo = 1;
+
+         function criarCategoria() {
+            const nome = document.getElementById("nome").value;
+            const lista = document.getElementById("lista-categorias");
+            if (lista.innerHTML.includes(nome)) {
+               alert("*** Já existe essa categoria! ***");
+               document.getElementById("nome").value = "";
+               document.getElementById("nome").focus();
+               return;
+            }
+            const novaCategoria = `
+               <div>
+                  <p>Código: ${codigo}</p>
+                  <p>Nome: ${nome}</p>
+                  <hr>
+               </div>
+            `;
+            lista.innerHTML += novaCategoria;
+            document.getElementById("nome").value = "";
+            alert(" *** CATEGORIA CADASTRADA COM SUCESSO!!! *** ");
+            codigo++;
+         }
+
+         function exibirLista() {
+            const lista = document.getElementById("lista-categorias");
+            lista.style.display = "block";
+         }
+      </script>
+   </head>
+   <body>
+      <h1> >> COMEX << </h1>
+      <h2> :: Cadastro de Categorias </h2>
+      <hr>
+      <div>
+         <label for="nome">Nome:</label>
+         <input type="text" id="nome"> <br>
+         <button onclick="criarCategoria()">Criar</button>
+         <button onclick="exibirLista()">Exibir Lista</button>
+      </div>
+      <h2> :: Lista de Categorias </h2>
+      <hr>
+      <div id="lista-categorias" style="display:none"></div>
+   </body>
+</html>
+
